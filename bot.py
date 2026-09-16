@@ -3,6 +3,7 @@ import nest_asyncio
 import random as rd
 from datetime import datetime
 import pytz
+import os
 from telegram import (
     InlineKeyboardButton, 
     InlineKeyboardMarkup, 
@@ -302,9 +303,10 @@ async def cancel_edit(update: Update, context: ContextTypes.DEFAULT_TYPE):
 def main():
     nest_asyncio.apply()
 
-    with open("token.txt", "r") as f:
-        TOKEN = f.read().strip()
-
+    #with open("token.txt", "r") as f:
+        #TOKEN = f.read().strip()
+    TOKEN = os.getenv("BOT_TOKEN")
+    
     app = ApplicationBuilder().token(TOKEN).build()
 
     # Daftarkan background job untuk mengecek reminder setiap 60 detik (1 menit)
