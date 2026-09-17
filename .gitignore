@@ -1,0 +1,6 @@
+# Database SQLite 
+tasks.db
+
+# Folder cache python
+__pycache__/
+*.pyc
